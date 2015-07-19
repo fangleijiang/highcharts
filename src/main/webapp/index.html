@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>highcharts</title>
+<script src="jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="highcharts-4.1.7/js/highcharts.js" type="text/javascript"></script> 
+<script type="text/javascript">
+$(function () {
+	var category = ['方雷江', '李磊', '张三', '李四', '王五'];
+	var datas =  [107, 31, 40, 203, 10];
+	//设置颜色图表的颜色
+	 Highcharts.setOptions({
+	        //colors: ['blue']
+	    });
+    $('#container').highcharts({
+        chart: {
+            type: 'bar',
+            fontSize:'12px',
+            fontWeight:'bold'
+            //color:'red'
+        },
+        title: {
+            text: 'Historic World Population by Region'
+        },
+        subtitle: {
+            text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
+        },
+        xAxis: {//x坐标轴
+            categories: category,
+            title: {
+                text: "姓名"
+            }
+        },
+        yAxis: {//y坐标轴
+            min: 0,
+            title: {
+                text: '成绩',
+                align: 'high'
+            },
+            labels: {
+                overflow: 'justify'
+            }
+        },
+        tooltip: {//数据提示框（Tooltip）
+            valueSuffix: ' millions'
+        },
+        plotOptions: {
+            bar: {
+                dataLabels: {
+                    enabled: true
+                }
+            }
+        },
+        legend: {//图例（Legend）
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'top',
+            x: -100,
+            y: 80,
+            floating: true,
+            borderWidth: 1,
+            backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+            shadow: true
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{//数据列
+            name: 'Year 1800',
+            data: [{
+                name: 'Point 1',
+                color: 'green',
+                y: 1
+            }, {
+                name: 'Point 2',
+                color: 'gray',
+                y: 10
+            },
+            {
+                name: 'Point 2',
+                color: 'blue',
+                y: 6
+            },{
+                name: 'Point 2',
+                color: 'red',
+                y: 9
+            },{
+                name: 'Point 2',
+                color: 'yellow',
+                y: 3
+            }]
+        }/* , {
+            name: 'Year 1900',
+            data: [133, 156, 947, 408, 6]
+        }, {
+            name: 'Year 2008',
+            data: [973, 914, 4054, 732, 34]
+        }, {
+            name: 'Year 2012',
+            data: [1052, 954, 4250, 740, 38]
+        } */]
+    });
+    
+    $('#container2').highcharts({
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: 'Historic World Population by Region'
+        },
+        subtitle: {
+            text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
+        },
+        xAxis: {
+            categories: category,
+            title: {
+                text: "姓名"
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Population (millions)',
+                align: 'high'
+            },
+            labels: {
+                overflow: 'justify'
+            }
+        },
+        tooltip: {
+            valueSuffix: ' millions'
+        },
+        plotOptions: {
+            bar: {
+                dataLabels: {
+                    enabled: true
+                }
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'top',
+            x: -100,
+            y: 80,
+            floating: true,
+            borderWidth: 1,
+            backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+            shadow: true
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: 'Year 1800',
+            data:datas
+        }/* , {
+            name: 'Year 1900',
+            data: [133, 156, 947, 408, 6]
+        }, {
+            name: 'Year 2008',
+            data: [973, 914, 4054, 732, 34]
+        }, {
+            name: 'Year 2012',
+            data: [1052, 954, 4250, 740, 38]
+        } */]
+    });
+});
+</script>
+</head>
+<body>
+<div id="container" style="min-width:400px;height:300px;float: left;margin-left: 100px;"></div>
+
+<div id="container2" style="min-width:400px;height:300px;margin-left:300px;float: left;"></div>
+
+</body>
+
+</html>
